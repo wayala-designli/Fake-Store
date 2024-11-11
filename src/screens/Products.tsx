@@ -16,8 +16,14 @@ const Products = () => {
     isRefreshing,
     isLoadingMore,
   } = useProducts();
-  const {filteredProducts, isFiltering, query, setQuery} =
-    useSearchProducts(productList);
+  const {
+    filteredProducts,
+    isFiltering,
+    query,
+    setQuery,
+    loadMoreFilteredItems,
+    isLoadingMoreFilteredProducts,
+  } = useSearchProducts(productList);
 
   const keyExtractor = useCallback((item: Product) => item.id.toString(), []);
 
@@ -41,13 +47,12 @@ const Products = () => {
           numColumns={2}
           columnWrapperStyle={styles.column}
           contentContainerStyle={styles.container}
-          bounces={false}
           refreshing={isRefreshing}
           onRefresh={onRefresh}
-          onEndReached={loadMoreItems}
+          onEndReached={query ? loadMoreFilteredItems : loadMoreItems}
           onEndReachedThreshold={0.5}
           ListFooterComponent={
-            isLoadingMore ? (
+            isLoadingMore || isLoadingMoreFilteredProducts ? (
               <View style={commonStyles.loadingMoreContainer}>
                 <ActivityIndicator size="large" color={COLORS.BLACK} />
               </View>

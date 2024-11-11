@@ -28,6 +28,7 @@ module.exports = {
           '@screens': './src/screens',
           '@utils': './src/utils',
           '@store': './src/store',
+          '@mocks': './src/mocks',
         },
       },
     ],

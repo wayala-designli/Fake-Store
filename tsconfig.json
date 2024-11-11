@@ -9,14 +9,15 @@
       "@api/*": ["./src/api/*"],
       "@assets/*": ["./src/assets/*"],
       "@components/*": ["./src/components/*"],
-      "@constants": ["./src/constants/*"],
+      "@constants": ["./src/constants/*", "./src/constants/index" ],
       "@domain/*": ["./src/domain/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@navigation/*": ["./src/navigation/*"],
       "@screens/*": ["./src/screens/*"],
       "@store/*": ["./src/store/*"],
       "@src/*": ["./src/*"],
-      "@utils/*": ["./utils/*"]
+      "@utils/*": ["./utils/*"],
+      "@mocks": ["./src/mocks/*", "./src/mocks/index"],
     }
   }
 }

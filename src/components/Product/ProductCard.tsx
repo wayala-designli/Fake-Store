@@ -16,8 +16,12 @@ const ProductCard = ({product}: IProductCard) => {
       <Image source={{uri: imageUrl}} style={styles.image} />
       <View style={styles.container}>
         <Text style={styles.title}>{name}</Text>
-        <Text style={styles.subtitle}>{categoryName}</Text>
-        <Text style={styles.subtitle}><Text style={styles.price}>{stockQuantity}</Text> disponibles</Text>
+        <Text style={[styles.subtitle, styles.categoryColor]}>
+          {categoryName}
+        </Text>
+        <Text style={styles.subtitle}>
+          <Text style={styles.price}>{stockQuantity}</Text> disponibles
+        </Text>
         <Text style={styles.price}>${price}</Text>
       </View>
     </TouchableOpacity>
@@ -66,6 +70,9 @@ const styles = StyleSheet.create({
     color: COLORS.GREY,
     fontWeight: '500',
     marginBottom: 10,
+  },
+  categoryColor: {
+    color: COLORS.PUMPKIN,
   },
 });
 

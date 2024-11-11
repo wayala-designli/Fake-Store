@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, TouchableOpacity} from 'react-native';
 import {useAppNavigation} from '@hooks/useAppNavigation';
-import LeftArrow from '@assets/LeftArrow';
+import {LeftArrow} from '@assets/index';
 import {COLORS} from '@constants';
 
 const Header = () => {

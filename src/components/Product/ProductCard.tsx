@@ -59,11 +59,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginBottom: 10,
     width: (width - 32) / 2,
-    elevation: 2,
-    shadowColor: '#000',
-    shadowOpacity: 0.2,
-    shadowOffset: {width: 0, height: 2},
-    shadowRadius: 5,
   },
   subtitle: {
     fontSize: 14,

@@ -4,5 +4,6 @@ export const COLORS = {
   GREY: '#696D76',
   BACKGROUND: '#F0F0F0',
   PUMPKIN: '#F0803C',
+  YELLOW: '#E8CF4A',
+  RED: '#E11818',
 };
-

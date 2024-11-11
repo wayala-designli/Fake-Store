@@ -1,4 +1,4 @@
-import Search from '@assets/Search';
+import {Search} from '@assets/index';
 import {COLORS} from '@constants';
 import {IProductsHeader} from '@domain/models/Product';
 import React from 'react';

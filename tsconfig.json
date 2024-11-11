@@ -7,16 +7,16 @@
     "baseUrl": ".",
     "paths": {
       "@api/*": ["./src/api/*"],
-      "@assets/*": ["./src/assets/*"],
+      "@assets/*": ["./src/assets/*", "./src/assets/index"],
       "@components/*": ["./src/components/*"],
-      "@constants": ["./src/constants/*", "./src/constants/index" ],
+      "@constants": ["./src/constants/*", "./src/constants/index"],
       "@domain/*": ["./src/domain/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@navigation/*": ["./src/navigation/*"],
       "@screens/*": ["./src/screens/*"],
       "@store/*": ["./src/store/*"],
       "@src/*": ["./src/*"],
-      "@utils/*": ["./utils/*"],
+      "@utils/*": ["./utils/*", "./src/utils/index"],
       "@mocks": ["./src/mocks/*", "./src/mocks/index"],
     }
   }

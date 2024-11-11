@@ -1,7 +1,7 @@
 import React from 'react';
 import {ActivityIndicator, StyleSheet, Text, View} from 'react-native';
 import {commonStyles, COLORS} from '@constants';
-import ProductNotFound from '@assets/ProductNotFound';
+import {ProductNotFound} from '@assets/index';
 
 interface IEmptyProducts {
   isLoading: boolean;

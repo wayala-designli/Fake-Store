@@ -5,7 +5,7 @@ export const useNetworkCheck = () => {
   const [connectionType, setConnectionType] = useState<
     NetInfoStateType | unknown
   >();
-  const [isConnected, setIsConnected] = useState<boolean | null>(true);
+  const [isConnected, setIsConnected] = useState<boolean | null>(false);
 
   useEffect(() => {
     const unsubscribe = NetInfo.addEventListener(state => {

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import {Product} from '@domain/models/Product';
 import {useEffect, useState} from 'react';
 import {useNetworkCheck} from './useNetworkCheck';
@@ -11,33 +12,67 @@ export const useProducts = () => {
   const [isLoading, setIsLoading] = useState(true);
   const {isConnected} = useNetworkCheck();
   const {offlineProducts, setProducts} = useProductStore();
-  const [error, setError] = useState<string | null>(null);
   const [offset, setOffset] = useState(0);
-  const limit = 20;
-
-  useEffect(() => {
-    onGetProducts();
-  }, []);
+  const [hasMore, setHasMore] = useState(true);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const [isRefreshing, setIsRefreshing] = useState(false);
+  const LIMIT = 20;
 
   useEffect(() => {
     if (!isConnected && offlineProducts.length > 0) {
       setProductList(offlineProducts);
       setIsLoading(false);
-      showWarningToast(errorMessage.networkError);
     }
   }, [isConnected, offlineProducts]);
 
+  useEffect(() => {
+    onGetProducts();
+  }, [offset, isConnected]);
+
   const onGetProducts = async () => {
+    if (!isConnected) return;
     try {
-      const data = await getAllProducts(offset, limit);
-      setProducts(data);
-      setProductList(data);
+      const data = await getAllProducts(offset, LIMIT);
+      if (offset === 0) {
+        setProductList(data);
+        setProducts(data);
+      } else {
+        setProductList(prevItems => [...prevItems, ...data]);
+        setProducts([...offlineProducts, ...data]);
+      }
+      if (data.length === 0 || data.length < LIMIT) {
+        setHasMore(false);
+      }
     } catch {
       showWarningToast(errorMessage.generalError);
     } finally {
+      setIsLoadingMore(false);
       setIsLoading(false);
     }
   };
 
-  return {productList, isLoading};
+  const loadMoreItems = () => {
+    if (hasMore && !isLoadingMore && productList.length > 0 && isConnected) {
+      setIsLoadingMore(true);
+      setOffset(prevOffset => prevOffset + LIMIT);
+    }
+  };
+
+  const onRefresh = () => {
+    setOffset(0);
+    setHasMore(true);
+    setIsRefreshing(true);
+    setTimeout(() => {
+      setIsRefreshing(false);
+    }, 1000);
+  };
+
+  return {
+    productList,
+    isLoading,
+    loadMoreItems,
+    onRefresh,
+    isRefreshing,
+    isLoadingMore,
+  };
 };

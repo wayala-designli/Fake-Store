@@ -3,6 +3,7 @@ import Wrapper from '@components/Wrapper';
 import {COLORS, commonStyles, height, width} from '@constants';
 import {StackParamList} from '@domain/models/ScreenTypes';
 import {RouteProp, useRoute} from '@react-navigation/native';
+import {getImageType} from '@utils/';
 import React from 'react';
 import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
 
@@ -16,7 +17,14 @@ const Details = () => {
     <Wrapper>
       <View style={commonStyles.basicFlex}>
         <Header />
-        <Image source={{uri: detailsParams.images[0]}} style={styles.image} />
+        <Image
+          source={
+            getImageType(detailsParams.images[0]) !== 'imgur'
+              ? require('@assets/NoImageAvailable.jpg')
+              : {uri: detailsParams.images[0]}
+          }
+          style={styles.image}
+        />
         <ScrollView
           style={styles.container}
           bounces={false}
@@ -44,7 +52,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: '700',
     width: '80%',
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
   container: {
     backgroundColor: COLORS.WHITE,

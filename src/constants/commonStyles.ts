@@ -14,8 +14,8 @@ export const commonStyles = StyleSheet.create({
     alignItems: 'center',
   },
   loadingMoreContainer: {
-    paddingTop: 50,
     justifyContent: 'center',
     alignItems: 'center',
+    paddingBottom: 20,
   },
 });

@@ -1,6 +1,6 @@
 import {useProducts, useSearchProducts} from '@hooks/index';
 import React, {useCallback, useRef} from 'react';
-import {FlatList, StyleSheet, View} from 'react-native';
+import {ActivityIndicator, FlatList, StyleSheet, View} from 'react-native';
 import {Wrapper} from '@components/index';
 import {Product} from '@domain/models/Product';
 import {ProductCard, EmptyProducts, Header} from '@components/Product';
@@ -8,7 +8,14 @@ import {COLORS, commonStyles} from '@constants';
 
 const Products = () => {
   const flatListRef = useRef<FlatList>(null);
-  const {isLoading, productList} = useProducts();
+  const {
+    isLoading,
+    productList,
+    loadMoreItems,
+    onRefresh,
+    isRefreshing,
+    isLoadingMore,
+  } = useProducts();
   const {filteredProducts, isFiltering, query, setQuery} =
     useSearchProducts(productList);
 
@@ -35,17 +42,17 @@ const Products = () => {
           columnWrapperStyle={styles.column}
           contentContainerStyle={styles.container}
           bounces={false}
-          // refreshing={refreshing}
-          // onRefresh={onRefresh}
-          // onEndReached={loadMoreItems}
-          // onEndReachedThreshold={0.1}
-          // ListFooterComponent={
-          //   isLoadingMore ? (
-          //     <View style={commonStyles.loadingMoreContainer}>
-          //       <ActivityIndicator size="large" color={COLORS.BLACK} />
-          //     </View>
-          //   ) : null
-          // }
+          refreshing={isRefreshing}
+          onRefresh={onRefresh}
+          onEndReached={loadMoreItems}
+          onEndReachedThreshold={0.5}
+          ListFooterComponent={
+            isLoadingMore ? (
+              <View style={commonStyles.loadingMoreContainer}>
+                <ActivityIndicator size="large" color={COLORS.BLACK} />
+              </View>
+            ) : null
+          }
         />
       </View>
     </Wrapper>

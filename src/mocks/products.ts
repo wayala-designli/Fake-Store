@@ -1,13 +1,12 @@
 import {Product} from '@domain/models/Product';
 
-export const products: Product[] = [
+export const products: any[] = [
   {
     id: 1,
-    name: 'Portátil Apple MacBook Pro',
+    title: 'Portátil Apple MacBook Pro',
     description:
       'Portátil de alto rendimiento con pantalla Retina de 13 pulgadas, chip Apple M1, 8 GB de RAM y 256 GB de SSD.',
     price: 1299.99,
-    stockQuantity: 75,
     categoryName: 'Electrónica',
     imageUrl: 'https://i.ibb.co/cDj3dpX/Apple-Mac-Book-Pro.png',
     createdAt: '2023-12-29',
@@ -15,7 +14,7 @@ export const products: Product[] = [
   },
   {
     id: 3,
-    name: 'Cámara Sony Alpha A7 III',
+    title: 'Cámara Sony Alpha A7 III',
     description:
       'Cámara mirrorless con sensor full-frame de 24.2 MP, grabación de vídeo 4K HDR y sistema de enfoque automático rápido.',
     price: 1999.99,
@@ -27,7 +26,7 @@ export const products: Product[] = [
   },
   {
     id: 4,
-    name: 'Consola PlayStation 5',
+    title: 'Consola PlayStation 5',
     description:
       'Consola de juegos de última generación con gráficos en 4K, SSD ultrarrápido y retrocompatibilidad con juegos de PS4.',
     price: 499.99,
@@ -39,7 +38,7 @@ export const products: Product[] = [
   },
   {
     id: 5,
-    name: 'Altavoz Bluetooth Portátil',
+    title: 'Altavoz Bluetooth Portátil',
     description:
       'Altavoz Bluetooth compacto y portátil con excelente calidad de sonido y resistencia al agua, ideal para llevarlo a cualquier parte.',
     price: 99.99,
@@ -52,7 +51,7 @@ export const products: Product[] = [
   },
   {
     id: 6,
-    name: 'Mr',
+    title: 'Mr',
     description:
       'Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.',
     price: 1819.75,
@@ -64,7 +63,7 @@ export const products: Product[] = [
   },
   {
     id: 7,
-    name: 'Ms',
+    title: 'Ms',
     description:
       'Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.\n\nSed ante. Vivamus tortor. Duis mattis egestas metus.',
     price: 1763.75,
@@ -76,7 +75,7 @@ export const products: Product[] = [
   },
   {
     id: 8,
-    name: 'Control PS5',
+    title: 'Control PS5',
     description:
       'Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.\n\nPhasellus in felis. Donec semper sapien a libero. Nam dui.\n\nProin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.',
     price: 1425.0,
@@ -88,7 +87,7 @@ export const products: Product[] = [
   },
   {
     id: 9,
-    name: 'MacBook pro 16',
+    title: 'MacBook pro 16',
     description:
       'Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.\n\nPellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.',
     price: 1621.54,
@@ -100,7 +99,7 @@ export const products: Product[] = [
   },
   {
     id: 10,
-    name: 'Pasta dental',
+    title: 'Pasta dental',
     description:
       'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.\n\nDuis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.',
     price: 513.1,
@@ -112,7 +111,7 @@ export const products: Product[] = [
   },
   {
     id: 11,
-    name: 'Cepillo de dientes',
+    title: 'Cepillo de dientes',
     description:
       'Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.\n\nIn congue. Etiam justo. Etiam pretium iaculis justo.\n\nIn hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.',
     price: 316.22,
@@ -124,7 +123,7 @@ export const products: Product[] = [
   },
   {
     id: 12,
-    name: 'Shampoo',
+    title: 'Shampoo',
     description:
       'Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.\n\nDuis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.',
     price: 1402.55,
@@ -136,7 +135,7 @@ export const products: Product[] = [
   },
   {
     id: 13,
-    name: 'Jabon',
+    title: 'Jabon',
     description:
       'Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.',
     price: 1366.52,
@@ -148,7 +147,7 @@ export const products: Product[] = [
   },
   {
     id: 14,
-    name: 'Pomada',
+    title: 'Pomada',
     description:
       'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.\n\nDonec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.\n\nDuis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.',
     price: 221.06,
@@ -160,7 +159,7 @@ export const products: Product[] = [
   },
   {
     id: 15,
-    name: 'Google pixel',
+    title: 'Google pixel',
     description:
       'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.\n\nMaecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.\n\nMaecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.',
     price: 999.06,
@@ -172,7 +171,7 @@ export const products: Product[] = [
   },
   {
     id: 16,
-    name: 'Extractor puntos negros',
+    title: 'Extractor puntos negros',
     description:
       'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.\n\nFusce consequat. Nulla nisl. Nunc nisl.\n\nDuis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.',
     price: 997.15,
@@ -184,7 +183,7 @@ export const products: Product[] = [
   },
   {
     id: 17,
-    name: 'Labial',
+    title: 'Labial',
     description:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.',
     price: 1014.4,
@@ -196,7 +195,7 @@ export const products: Product[] = [
   },
   {
     id: 18,
-    name: 'Audifonos',
+    title: 'Audifonos',
     description:
       'Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.\n\nPellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.',
     price: 1754.46,
@@ -208,7 +207,7 @@ export const products: Product[] = [
   },
   {
     id: 19,
-    name: 'Nitro 5',
+    title: 'Nitro 5',
     description:
       'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.',
     price: 562.01,
@@ -220,7 +219,7 @@ export const products: Product[] = [
   },
   {
     id: 20,
-    name: 'Samsung S23',
+    title: 'Samsung S23',
     description:
       'Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. \n Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. \n Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. \n Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. \n Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. \n Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. \n Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. \n Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.',
     price: 28.51,

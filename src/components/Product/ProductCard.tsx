@@ -1,11 +1,11 @@
-import {COLORS, height, width} from '@constants';
+import {COLORS, height} from '@constants';
 import {IProductCard} from '@domain/models/Product';
 import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {useAppNavigation} from '@hooks/useAppNavigation';
 
 const ProductCard = ({product}: IProductCard) => {
-  const {name, price, imageUrl, categoryName, stockQuantity} = product;
+  const {title, price, images, category} = product;
   const navigation = useAppNavigation();
 
   return (
@@ -13,16 +13,15 @@ const ProductCard = ({product}: IProductCard) => {
       activeOpacity={0.8}
       style={styles.card}
       onPress={() => navigation.navigate('Details', {product})}>
-      <Image source={{uri: imageUrl}} style={styles.image} />
-      <View style={styles.container}>
-        <Text style={styles.title}>{name}</Text>
-        <Text style={[styles.subtitle, styles.categoryColor]}>
-          {categoryName}
-        </Text>
-        <Text style={styles.subtitle}>
-          <Text style={styles.price}>{stockQuantity}</Text> disponibles
-        </Text>
+      <View style={styles.priceContainer}>
         <Text style={styles.price}>${price}</Text>
+      </View>
+      <Image source={{uri: images[0]}} style={styles.image} />
+      <View style={styles.container}>
+        <Text numberOfLines={2} style={styles.title}>
+          {title}
+        </Text>
+        <Text style={styles.category}>{category.name}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -39,35 +38,44 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   title: {
-    fontSize: 16,
+    fontSize: 17,
     color: COLORS.BLACK,
     fontWeight: '700',
     marginBottom: 10,
   },
   price: {
-    fontSize: 14,
+    fontSize: 15,
     color: COLORS.BLACK,
-    fontWeight: '700',
+    fontWeight: '600',
   },
   container: {
+    flex: 1,
     paddingBottom: 10,
     paddingHorizontal: 7,
+    justifyContent: 'space-between',
   },
   card: {
     borderRadius: 10,
     borderColor: COLORS.BACKGROUND,
     borderWidth: 1,
     marginBottom: 10,
-    width: (width - 32) / 2,
+    flex: 1,
   },
-  subtitle: {
+  category: {
     fontSize: 14,
-    color: COLORS.GREY,
-    fontWeight: '500',
+    color: COLORS.PUMPKIN,
+    fontWeight: '600',
     marginBottom: 10,
   },
-  categoryColor: {
-    color: COLORS.PUMPKIN,
+  priceContainer: {
+    position: 'absolute',
+    zIndex: 4,
+    top: 5,
+    right: 10,
+    backgroundColor: COLORS.YELLOW,
+    paddingVertical: 10,
+    borderRadius: '50%',
+    paddingHorizontal: 5,
   },
 });
 

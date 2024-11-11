@@ -12,8 +12,8 @@ export const useSearchProducts = (productsList: Product[]) => {
 
     return productsList.filter(
       product =>
-        product?.name?.toLowerCase().includes(query?.toLowerCase()) ||
-        product?.categoryName?.toLowerCase().includes(query?.toLowerCase()),
+        product?.title?.toLowerCase().includes(query?.toLowerCase()) ||
+        product?.category.name?.toLowerCase().includes(query?.toLowerCase()),
     );
   };
 

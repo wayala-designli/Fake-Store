@@ -1,20 +1,23 @@
 export type Product = {
   id: number;
-  name: string;
+  title: string;
   description: string;
   price: number;
-  stockQuantity: number;
-  categoryName: string;
-  imageUrl: string;
-  createdAt: string;
+  category: {
+    id: number;
+    image: string;
+    name: string;
+  };
+  images: string[];
+  creationAt: string;
   updatedAt: string;
 };
 
-export interface IProductCard{
-  product: Product
+export interface IProductCard {
+  product: Product;
 }
 
 export interface IProductsHeader {
-  query: string
-  setQuery: (value: string) => void
+  query: string;
+  setQuery: (value: string) => void;
 }

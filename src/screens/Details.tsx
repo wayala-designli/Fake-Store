@@ -16,21 +16,19 @@ const Details = () => {
     <Wrapper>
       <View style={commonStyles.basicFlex}>
         <Header />
-        <Image source={{uri: detailsParams.imageUrl}} style={styles.image} />
+        <Image source={{uri: detailsParams.images[0]}} style={styles.image} />
         <ScrollView
           style={styles.container}
           bounces={false}
           showsVerticalScrollIndicator={false}>
           <View style={styles.titleContainer}>
-            <Text style={styles.name}>{detailsParams.name}</Text>
-            <Text style={styles.price}>${detailsParams.price}</Text>
+            <Text style={styles.name}>{detailsParams.title}</Text>
+            <View style={styles.priceContainer}>
+              <Text style={styles.price}>${detailsParams.price}</Text>
+            </View>
           </View>
-          <Text style={styles.category}>{detailsParams.categoryName}</Text>
+          <Text style={styles.category}>{detailsParams.category.name}</Text>
           <Text style={styles.subtitle}>{detailsParams.description}</Text>
-          <Text style={styles.subtitle}>
-            <Text style={styles.price}>{detailsParams.stockQuantity}</Text>{' '}
-            disponibles
-          </Text>
         </ScrollView>
       </View>
     </Wrapper>
@@ -45,7 +43,8 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 22,
     fontWeight: '700',
-    width: '65%',
+    width: '80%',
+    alignSelf: 'center'
   },
   container: {
     backgroundColor: COLORS.WHITE,
@@ -69,7 +68,7 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 20,
     color: COLORS.BLACK,
-    fontWeight: '700',
+    fontWeight: '600',
   },
   titleContainer: {
     flexDirection: 'row',
@@ -77,6 +76,14 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     marginBottom: 15,
     marginTop: 20,
+  },
+  priceContainer: {
+    backgroundColor: COLORS.YELLOW,
+    paddingVertical: 13,
+    borderRadius: '50%',
+    paddingHorizontal: 7,
+    justifyContent: 'center',
+    alignSelf: 'center',
   },
 });
 export default Details;

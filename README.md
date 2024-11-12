@@ -20,6 +20,13 @@ npm install
 yarn install
 ```
 
+### For iOS
+
+```bash
+# Install CocoaPods
+cd ios && pod install
+```
+
 ## Step 3: Start your Application
 
 You need to create the _.env_, _.env.development_ and _.env.production_ files in the root of your project, following the example of .env.example to add the variables, in this case only BASE_URL is needed, but because it's a test and a public API, the value is https://api.escuelajs.co/api/v1

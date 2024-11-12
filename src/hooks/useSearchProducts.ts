@@ -37,7 +37,7 @@ export const useSearchProducts = (productsList: Product[]) => {
   };
 
   const onHandleFilterProducts = () => {
-    if (!query) return productsList;
+    if (!query) return setFilteredProducts(productsList);
 
     if (isConnected) return onGetProductsByName();
 

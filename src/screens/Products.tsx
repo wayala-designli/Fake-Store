@@ -1,10 +1,17 @@
 import {useProducts, useSearchProducts} from '@hooks/index';
 import React, {useCallback, useRef} from 'react';
-import {ActivityIndicator, FlatList, StyleSheet, View} from 'react-native';
+import {
+  ActivityIndicator,
+  FlatList,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {Wrapper} from '@components/index';
 import {Product} from '@domain/models/Product';
 import {ProductCard, EmptyProducts, Header} from '@components/Product';
 import {COLORS, commonStyles} from '@constants';
+import UpArrow from '@assets/UpArrow';
 
 const Products = () => {
   const flatListRef = useRef<FlatList>(null);
@@ -24,6 +31,11 @@ const Products = () => {
     loadMoreFilteredItems,
     isLoadingMoreFilteredProducts,
   } = useSearchProducts(productList);
+
+  const onScrollToTop = () => {
+    if (flatListRef.current && filteredProducts.length > 0)
+      flatListRef.current.scrollToIndex({index: 0});
+  };
 
   const keyExtractor = useCallback((item: Product) => item.id.toString(), []);
 
@@ -59,6 +71,13 @@ const Products = () => {
             ) : null
           }
         />
+        {filteredProducts.length > 4 && (
+          <TouchableOpacity
+            style={styles.buttonToScroll}
+            onPress={onScrollToTop}>
+            <UpArrow />
+          </TouchableOpacity>
+        )}
       </View>
     </Wrapper>
   );
@@ -80,6 +99,16 @@ const styles = StyleSheet.create({
     color: COLORS.BLACK,
     marginBottom: 10,
     textAlign: 'center',
+  },
+  buttonToScroll: {
+    position: 'absolute',
+    zIndex: 5,
+    bottom: 60,
+    right: 20,
+    backgroundColor: COLORS.BACKGROUND,
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+    borderRadius: '50%',
   },
 });
 

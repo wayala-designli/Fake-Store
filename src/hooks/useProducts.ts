@@ -45,6 +45,7 @@ export const useProducts = () => {
       }
     } catch {
       showWarningToast(errorMessage.generalError);
+      setProductList([]);
     } finally {
       setIsLoadingMore(false);
       setIsLoading(false);

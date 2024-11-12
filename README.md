@@ -4,76 +4,72 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 >**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
-## Step 1: Start the Metro Server
+## Step 1: Clone repository
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+Using the command: **git clone <repository_url>**
 
-To start Metro, run the following command from the _root_ of your React Native project:
+## Step 2: Install dependencies
+
+You should run one of these commands:
 
 ```bash
 # using npm
-npm start
+npm install
 
 # OR using Yarn
-yarn start
+yarn install
 ```
 
-## Step 2: Start your Application
+## Step 3: Start your Application
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+You need to create the _.env_, _.env.development_ and _.env.production_ files in the root of your project, following the example of .env.example to add the variables, in this case only BASE_URL is needed, but because it's a test and a public API, the value is https://api.escuelajs.co/api/v1
+
+After that, the steps to run are:
 
 ### For Android
 
 ```bash
-# using npm
-npm run android
+# development debug mode
+npx react-native run-android --mode=developmentDebug
 
-# OR using Yarn
-yarn android
+# OR production debug mode
+npx react-native run-android --mode=productionDebug
 ```
 
 ### For iOS
 
 ```bash
-# using npm
-npm run ios
+# development mode
+1. Enter to XCode
+2. Select "development" schema
+3. Select "Product" menu -> clean build folder
+4. Select an iOS simulator
+5. Select Run option
 
-# OR using Yarn
-yarn ios
+# OR production mode
+1. Enter to XCode
+2. Select "development" schema
+3. Select "FakeStore" menu -> clean build folder
+4. Select an iOS simulator
+5. Select Run option
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_.
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+# About the project 
 
-## Step 3: Modifying your App
+This structure follows the Hexagonal Architecture, maintaining a clear separation between the business logic, the user interface and the details of the infrastructure and technology:
 
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+- **src/**: The root folder.
+- **api/**: Folder containing client and API calls.
+- **assets/**: Folder for assets like icons, images, etc.
+- **components/**: User interface components to be used in the application.
+- **constants/**: Folder to hold constant values used throughout the app like colors, dimensions, etc.
+- **domain/**:
+  - **models/**: Defines data models for the application.
+- **hooks/**: Custom React hooks.
+- **mocks/**: Dummy Data.
+- **navigation/**: Handles app navigation logic.
+- **screens/**: Screens with which the user interacts.
+- **store/**: Manages application state (Zustand).
+- **utils/**: This folder contains the pure functions that are used throughout the app.

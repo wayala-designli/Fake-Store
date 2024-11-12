@@ -1,11 +1,10 @@
-import {Header} from '@components/Details';
+import {Gallery, Header} from '@components/Details';
 import Wrapper from '@components/Wrapper';
 import {COLORS, commonStyles, height, width} from '@constants';
 import {StackParamList} from '@domain/models/ScreenTypes';
 import {RouteProp, useRoute} from '@react-navigation/native';
-import {getImageType} from '@utils/';
 import React from 'react';
-import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {ScrollView, StyleSheet, Text, View} from 'react-native';
 
 type DetailsScreenRouteProp = RouteProp<StackParamList, 'Details'>;
 
@@ -17,14 +16,7 @@ const Details = () => {
     <Wrapper>
       <View style={commonStyles.basicFlex}>
         <Header />
-        <Image
-          source={
-            getImageType(detailsParams.images[0]) !== 'imgur'
-              ? require('@assets/NoImageAvailable.jpg')
-              : {uri: detailsParams.images[0]}
-          }
-          style={styles.image}
-        />
+        <Gallery gallery={detailsParams.images} />
         <ScrollView
           style={styles.container}
           bounces={false}
@@ -87,9 +79,9 @@ const styles = StyleSheet.create({
   },
   priceContainer: {
     backgroundColor: COLORS.YELLOW,
-    paddingVertical: 13,
-    borderRadius: '50%',
-    paddingHorizontal: 7,
+    paddingVertical: 12,
+    borderRadius: '100%',
+    paddingHorizontal: 10,
     justifyContent: 'center',
     alignSelf: 'center',
   },

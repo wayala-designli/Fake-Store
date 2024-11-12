@@ -3,12 +3,11 @@ import {IProductCard} from '@domain/models/Product';
 import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {useAppNavigation} from '@hooks/useAppNavigation';
-import { getImageType } from '@utils/';
+import {getImageType} from '@utils/';
 
 const ProductCard = ({product}: IProductCard) => {
   const {title, price, images, category} = product;
   const navigation = useAppNavigation();
-
   return (
     <TouchableOpacity
       activeOpacity={0.8}
@@ -17,14 +16,17 @@ const ProductCard = ({product}: IProductCard) => {
       <View style={styles.priceContainer}>
         <Text style={styles.price}>${price}</Text>
       </View>
-      <Image
-        source={
-          getImageType(images[0]) !== 'imgur'
-            ? require('@assets/NoImageAvailable.jpg')
-            : {uri: images[0]}
-        }
-        style={styles.image}
-      />
+      {images.length > 0 && (
+        <Image
+          source={
+            getImageType(images[0]) !== 'imgur'
+              ? require('@assets/NoImageAvailable.jpg')
+              : {uri: images[0]}
+          }
+          style={styles.image}
+        />
+      )}
+
       <View style={styles.container}>
         <Text numberOfLines={2} style={styles.title}>
           {title}
@@ -81,9 +83,9 @@ const styles = StyleSheet.create({
     top: 5,
     right: 10,
     backgroundColor: COLORS.YELLOW,
-    paddingVertical: 10,
-    borderRadius: '50%',
-    paddingHorizontal: 5,
+    paddingVertical: 12,
+    borderRadius: '100%',
+    paddingHorizontal: 10,
   },
 });
 

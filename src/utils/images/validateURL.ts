@@ -1,4 +1,4 @@
-type ImageType = 'placeimg' | 'imgur' | 'unknown';
+export type ImageType = 'placeimg' | 'imgur' | 'unknown';
 
 export const getImageType = (url: string): ImageType => {
   if (url.includes('placeimg.com')) return 'placeimg';

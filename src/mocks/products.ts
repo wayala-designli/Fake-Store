@@ -1,5 +1,3 @@
-import {Product} from '@domain/models/Product';
-
 export const products: any[] = [
   {
     id: 1,

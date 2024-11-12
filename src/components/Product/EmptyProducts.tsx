@@ -11,7 +11,11 @@ const EmptyProducts = ({isLoading}: IEmptyProducts) => {
   if (isLoading) {
     return (
       <View style={[commonStyles.centerContainer, commonStyles.basicFlex]}>
-        <ActivityIndicator color={COLORS.BLACK} size="large" />
+        <ActivityIndicator
+          testID="loading-indicator"
+          color={COLORS.BLACK}
+          size="large"
+        />
       </View>
     );
   }

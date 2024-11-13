@@ -55,8 +55,8 @@ npx react-native run-android --mode=productionDebug
 
 # OR production mode
 1. Enter to XCode
-2. Select "development" schema
-3. Select "FakeStore" menu -> clean build folder
+2. Select "FakeStore" schema
+3. Select "Product" menu -> clean build folder
 4. Select an iOS simulator
 5. Select Run option
 ```
